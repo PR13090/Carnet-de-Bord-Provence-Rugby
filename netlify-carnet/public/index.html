@@ -462,16 +462,9 @@ function videoListHtml(videos, kind){
     const vimeoEmbed = !ytId ? embedUrl(v.url) : null;
     let media = '';
     if(ytId){
-      media = `
-        <a class="item-embed yt-thumb" href="https://www.youtube.com/watch?v=${ytId}" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/${ytId}/hqdefault.jpg" alt="" loading="lazy" />
-          <span class="play-badge">
-            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 7l9 5-9 5z" fill="#0A0A0A"/></svg>
-          </span>
-        </a>
-      `;
+      media = `<div class="item-embed"><iframe src="https://www.youtube.com/embed/${ytId}" title="${escapeHtml(v.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>`;
     } else if(vimeoEmbed){
-      media = `<div class="item-embed"><iframe src="${vimeoEmbed}" allowfullscreen></iframe></div>`;
+      media = `<div class="item-embed"><iframe src="${vimeoEmbed}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
     } else {
       media = `<a class="item-link" href="${v.url}" target="_blank" rel="noopener">Ouvrir la vidéo →</a>`;
     }
@@ -482,7 +475,6 @@ function videoListHtml(videos, kind){
           <button class="del-btn" data-del="${kind}" data-id="${v.id}">&times;</button>
         </div>
         ${media}
-        ${ytId ? `<a class="item-link" href="https://www.youtube.com/watch?v=${ytId}" target="_blank" rel="noopener">Regarder sur YouTube →</a>` : ''}
       </div>
     `;
   }).join('') + '</div>';
