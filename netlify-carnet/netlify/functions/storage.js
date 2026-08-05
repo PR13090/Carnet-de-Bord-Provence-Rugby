@@ -1,4 +1,8 @@
-const { getStore } = require("@netlify/blobs");
+const store = getStore({
+  name: "rugby-carnet",
+  siteID: process.env.SITE_ID,
+  token: process.env.NETLIFY_API_TOKEN
+});
 
 exports.handler = async (event) => {
   const store = getStore("rugby-carnet");
