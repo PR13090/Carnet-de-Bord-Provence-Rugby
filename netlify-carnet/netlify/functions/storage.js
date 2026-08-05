@@ -1,11 +1,12 @@
-const store = getStore({
-  name: "rugby-carnet",
-  siteID: process.env.SITE_ID,
-  token: process.env.NETLIFY_API_TOKEN
-});
+const { getStore } = require("@netlify/blobs");
 
 exports.handler = async (event) => {
-  const store = getStore("rugby-carnet");
+  const store = getStore({
+    name: "rugby-carnet",
+    siteID: process.env.BLOBS_SITE_ID,
+    token: process.env.NETLIFY_API_TOKEN
+  });
+
   const key = event.queryStringParameters && event.queryStringParameters.key;
 
   const cors = {
