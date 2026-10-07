@@ -1,0 +1,12 @@
+# Dépendances installées localement (npm install)
+node_modules/
+
+# Fichiers créés par le CLI Netlify en local (contient l'identifiant du site lié)
+.netlify/
+
+# Variables d'environnement locales : ne jamais les mettre sur GitHub
+.env
+.env.*
+
+# Fichiers système macOS
+.DS_Store
