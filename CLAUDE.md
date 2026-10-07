@@ -16,8 +16,8 @@ les solutions simples, expliquer chaque changement en français, procéder par p
 - **Présentation de l'adversaire** : notes + galerie de plusieurs photos.
 - Les notes s'enregistrent quand on quitte le champ (indication « enregistré »).
 
-Sur la branche `test` (pas encore sur `main`) : plein écran au tap sur les photos, formulaire
-d'ajout de vidéo en bas de page, nouvelle charte graphique.
+En production depuis le 2026-10-07 : plein écran au tap sur les photos, formulaire d'ajout
+de vidéo en bas de page, charte graphique de la plateforme stats.
 
 ## Points d'attention connus
 - Une sauvegarde qui échoue (réseau, taille) n'est pas signalée à l'utilisateur (choix assumé : pas d'alerte voulue).
@@ -65,6 +65,10 @@ Même charte que la plateforme stats joueurs (`~/Documents/Stats Provence Rugby/
   Les icônes d'écran d'accueil (`icon-*.png`) montrent encore l'ancien logo.
 - Mobile d'abord : barre d'onglets en bas (onglet actif = trait rouge au-dessus), champs de saisie
   à 16 px (évite le zoom iOS), marges de sécurité iPhone.
+
+## Sauvegardes
+- Copies des données (lecture seule, les 3 clés) dans `~/Documents/Carnet-de-Bord-sauvegardes/<date>/`,
+  hors du dépôt. En faire une avant toute mise en ligne qui touche aux données.
 
 ## Contraintes à respecter
 - Vidéos hébergées sur YouTube en "non répertorié" (choix assumé). Ne pas promettre
