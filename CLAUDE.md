@@ -16,12 +16,11 @@ les solutions simples, expliquer chaque changement en français, procéder par p
 - **Présentation de l'adversaire** : notes + galerie de plusieurs photos.
 - Les notes s'enregistrent quand on quitte le champ (indication « enregistré »).
 
-Écarts avec le comportement voulu (à vérifier sur le site en ligne, puis à corriger) :
-- Le plein écran au tap sur les photos (Game Plan et Adversaire) n'existe pas dans le code.
-- Le formulaire d'ajout de vidéo devrait être en bas de page, après les vidéos existantes.
+Sur la branche `test` (pas encore sur `main`) : plein écran au tap sur les photos, formulaire
+d'ajout de vidéo en bas de page, nouvelle charte graphique.
 
 ## Points d'attention connus
-- Une sauvegarde qui échoue (réseau, taille) n'est pas signalée à l'utilisateur.
+- Une sauvegarde qui échoue (réseau, taille) n'est pas signalée à l'utilisateur (choix assumé : pas d'alerte voulue).
 - Les notes et vidéos sont enregistrées en un seul bloc : si deux personnes modifient
   en même temps, la dernière sauvegarde écrase les ajouts de l'autre.
 - Code inutilisé dans `index.html` : fonctions `fichierAddForm` / `fichierListHtml`.
@@ -57,11 +56,15 @@ les solutions simples, expliquer chaque changement en français, procéder par p
   Ne jamais écrire ces valeurs dans le dépôt.
 
 ## Identité visuelle
-- Fond noir (#0A0A0A), accent olivier (#7C8F5E), or discret (#B08A3C), cartes claires (#F3F0E8).
-- Polices : Oswald (titres), Inter (texte), JetBrains Mono (détails).
-- Logo Provence Rugby (olivier + ballon) : fichier fourni par le club, ne pas le redessiner.
-- Mobile d'abord : barre d'onglets en bas, champs de saisie à 16 px (évite le zoom iOS),
-  marges de sécurité iPhone.
+Même charte que la plateforme stats joueurs (`~/Documents/Stats Provence Rugby/stats-joueurs.html`) :
+- Fond noir (#000), panneaux anthracite (#1E1E1E) avec bordure grise (#33373D), texte blanc,
+  gris secondaire (#9C9C9C), rouge club en accent (#C20029), jaune en repère (#F1D436).
+- Polices : Glacial Indifference en capitales pour titres, onglets, étiquettes et boutons
+  (fichiers locaux `public/fonts/`, licence OFL) ; Helvetica Neue pour le texte. Coins carrés.
+- Logo : le logo blanc des stats (SVG inline dans l'en-tête, couleur = currentColor). Ne pas le redessiner.
+  Les icônes d'écran d'accueil (`icon-*.png`) montrent encore l'ancien logo.
+- Mobile d'abord : barre d'onglets en bas (onglet actif = trait rouge au-dessus), champs de saisie
+  à 16 px (évite le zoom iOS), marges de sécurité iPhone.
 
 ## Contraintes à respecter
 - Vidéos hébergées sur YouTube en "non répertorié" (choix assumé). Ne pas promettre
@@ -69,8 +72,10 @@ les solutions simples, expliquer chaque changement en français, procéder par p
 - Pas de comptes utilisateurs : toute personne ayant le lien peut lire et modifier.
 - Ne pas casser les données déjà saisies : toute évolution du format des données doit
   rester compatible avec les clés existantes ou prévoir une migration.
-- Tester en local (`netlify dev`) avant de pousser sur `main`, puisque chaque push met le site
-  en production devant les joueurs. (Le CLI `netlify` n'est pas encore installé sur le Mac.)
+- Tester avant de pousser sur `main`, puisque chaque push met le site en production devant les joueurs :
+  pousser d'abord la branche `test`, publiée sur https://test--provencerugby.netlify.app (mêmes données
+  que la production : regarder sans modifier). `netlify dev` ne marche pas sur le Mac (fichiers
+  supprimés par la sécurité du club, à voir avec l'informatique).
 - Ne jamais pousser sur `main` sans l'accord explicite de l'utilisateur.
 
 ## Façon de travailler
